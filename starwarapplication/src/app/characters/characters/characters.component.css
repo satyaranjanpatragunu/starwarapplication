@@ -1,0 +1,264 @@
+.navbar {
+    display: flex;
+    padding: 0em 1em;
+    justify-content: space-between;
+    color: white;
+
+}
+
+.navbar h2 {
+    font-size: 3em;
+
+}
+
+.navbar p {
+    font-size: 0.7em;
+    display: flex;
+    align-items: end;
+}
+
+.filteritems {
+    display: flex;
+    background: white;
+    margin-left: 5em;
+    max-width: 22%;
+}
+
+.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+    display: none;
+}
+
+.mat-expansion-panel-header {
+    background-color: #E8E8E8;
+}
+
+.results {
+    display: flex;
+    width: 61%;
+    padding: 0em 2em;
+    background: white;
+    flex-direction: column;
+}
+
+.page-item {
+    padding: 4px 10px;
+    text-decoration: none;
+    background: grey;
+    color: white;
+}
+
+.mat-icon {
+    height: 17px;
+    width: 17px;
+}
+
+.page-item:hover {
+    background-color: #16a34a;
+    color: white;
+}
+
+.page-item.active {
+    background-color: #16a34a;
+    color: white;
+}
+
+.page-item.disabled {
+    cursor: not-allowed;
+}
+
+.page-item.disabled:hover {
+    background-color: gray;
+}
+
+.page-item.active .page-link {
+    background-color: #16a34a;
+    color: white;
+    border-color: #16a34a;
+}
+
+.material-icons {
+    font-size: 18px;
+}
+
+.pagination {
+    list-style: none;
+    display: flex;
+    cursor: pointer;
+    gap: 3px;
+    justify-content: flex-end;
+}
+
+.result-table {
+    color: #747474;
+    table-layout: fixed;
+}
+
+.tablecontainer {
+    display: contents;
+}
+
+.no-data {
+    margin-top: 2em;
+    color: #239B77
+}
+
+.result-body {
+    background-color: #e8e8e8;
+}
+
+.hearder-row {
+    background-color: #f7f7f7;
+    font-size: 1.1em;
+}
+
+.hearder-row th {
+    padding: 10px 12px;
+}
+
+.result-body td {
+    padding: 16px 16px;
+}
+
+.results h2 {
+    color: #239B77;
+}
+
+.mat-accordion .mat-expansion-panel {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+    border-radius: 1em !important;
+}
+
+form {
+    background: #E8E8E8;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    background-color: #239B77 !important;
+    border-radius: 1px;
+}
+
+::ng-deep .mat-expansion-panel.mat-expanded>.mat-expansion-panel-content-wrapper {
+    background-color: #E8E8E8;
+}
+
+mat-expansion-panel-header .mat-expansion-indicator svg {
+    fill: #16a34a !important;
+}
+
+.mat-mdc-checkbox {
+    background-color: white;
+}
+
+
+
+.mat-checkboxdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 0.5em;
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+.main-container {
+    display: flex;
+    margin-top: 2em;
+    gap: 2em;
+    /* padding-bottom: 1em; */
+}
+
+.filter-container {
+    background: #fff;
+    padding: 1em;
+    box-shadow: 0 2px 8px #00000012;
+}
+
+.filter-container h2 {
+    text-align: center;
+    color: #239B77;
+    margin-bottom: 25px;
+}
+
+mat-expansion-panel {
+    margin-bottom: 10px;
+    box-shadow: none !important;
+    border: 1px solid #eeeeee;
+}
+
+::ng-deep.mat-expansion-indicator svg {
+    display: none !important;
+}
+
+.headerexpandable .mat-expansion-indicator {
+    display: none !important;
+}
+
+.headerexpandable .mat-expansion-panel-header::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid green;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.headerexpandable.mat-expanded .mat-expansion-panel-header::after {
+    transform: rotate(180deg);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid white;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.headerexpandable mat-panel-title {
+    color: #239B77;
+}
+
+.headerexpandable.mat-expanded mat-panel-title {
+    color: white;
+}
+
+mat-panel-title {
+    /* color: #239B77; */
+    font-weight: 600;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.search-button {
+    width: 50%;
+    border-radius: 2px;
+    padding: 0px;
+    margin: 0 auto;
+    display: flex;
+    font-weight: 600;
+    border-color: #16a34a !important;
+}
+
+.mat-expansion-panel.mat-expanded>.mat-expansion-panel-content-wrapper>.mat-expansion-panel-content {
+    background-color: gray;
+}
+
+::ng-deep .mdc-checkbox__checkmark {
+    display: none !important;
+}
+
+::ng-deep.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+    background-color: #239B77 !important;
+    border-color: #239B77 !important;
+}
+
+.mat-mdc-outlined-button {
+    color: #239B77 !important;
+    border: 2px solid #239B77;
+}

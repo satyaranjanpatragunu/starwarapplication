@@ -1,0 +1,91 @@
+.navbar {
+    display: flex;
+    padding: 0em 1em;
+    justify-content: space-between;
+    color: white;
+
+}
+
+.navbar h2 {
+    font-size: 3em;
+
+}
+
+.navbar p {
+    font-size: 0.7em;
+    display: flex;
+    align-items: end;
+}
+
+.main-container {
+    display: flex;
+    margin-top: 2em;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+.filteritems {
+    display: flex;
+    background: white;
+    margin-left: 5em;
+    max-width: 22%;
+    max-height: 40em;
+}
+
+.card-body h5 {
+    margin: 0.8em;
+}
+
+.character-detils {}
+
+.text-items {
+    list-style: none;
+    padding: 0;
+    color: grey;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.filter-container {
+    background: #fff;
+    padding: 4em;
+    box-shadow: 0 2px 8px #00000012;
+}
+
+.filter-container h2 {
+    text-align: center;
+    color: #239B77;
+    margin-bottom: 25px;
+}
+
+.results {
+    display: flex;
+    width: 61%;
+    padding: 0em 2em;
+    background: white;
+    flex-direction: column;
+}
+
+form {
+    background: #E8E8E8;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.movies-card {
+    background-color: #E8E8E8;
+    font-family: 'Nunito Sans', sans-serif;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 20px;
+    font-size: 0.8em;
+
+}
+
+.profile-icon {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background: #e4e9e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

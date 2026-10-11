@@ -1,0 +1,171 @@
+<form>
+
+    <!--header-->
+    <div class="maindivcontainerheader">
+        <!-- <h2 class="starwars">{{header}}</h2>
+            <p>{{header2}}</p> -->
+        <nav class="navbar" style="background-color: #239B77;" data-bs-theme="light">
+            <h2 class="starwars">{{header}}</h2>
+            <p>{{header2}}</p>
+        </nav>
+    </div>
+    <!--body-->
+    <div class="main-container">
+        <div class="filteritems">
+            <div class="filter-container">
+                <h2>FILTERS</h2>
+                <mat-accordion>
+                    <mat-expansion-panel class="headerexpandable">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Movie Name</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="mat-checkboxdiv">
+                            <mat-checkbox [checked]="selectAllStatus['films'] || false"
+                                (change)="toggleSelectAll('films', dropdownvaluesmovies, $event.checked)">Select
+                                All</mat-checkbox>
+
+                            @for (item of dropdownvaluesmovies; track $index) {
+                            <mat-checkbox [checked]="selectedFilters['films'].includes(item) "
+                                (change)="toggleItem('films', item, $event.checked, dropdownvaluesmovies)">{{item}}</mat-checkbox>
+                            }
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel class="headerexpandable">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Species</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="mat-checkboxdiv">
+                            <mat-checkbox [checked]="selectAllStatus['species'] || false"
+                                (change)="toggleSelectAll('species', dropdownvaluesspecies, $event.checked)">
+                                Select All</mat-checkbox>
+                            @for (item of dropdownvaluesspecies; track $index) {
+                            <mat-checkbox [checked]="selectedFilters['species'].includes(item) "
+                                (change)="toggleItem('species', item, $event.checked, dropdownvaluesspecies)">{{item}}</mat-checkbox>
+                            }
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel class="headerexpandable">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Vehicle</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="mat-checkboxdiv">
+                            <mat-checkbox [checked]="selectAllStatus['vehicles'] || false"
+                                (change)="toggleSelectAll('vehicles', dropdownvaluesvehicle, $event.checked)">Select
+                                All</mat-checkbox>
+                            @for (item of dropdownvaluesvehicle; track $index) {
+                            <mat-checkbox [checked]="selectedFilters['vehicles'].includes(item) "
+                                (change)="toggleItem('vehicles', item, $event.checked, dropdownvaluesvehicle)">{{item}}</mat-checkbox>
+                            }
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel class="headerexpandable">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Star Ships</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="mat-checkboxdiv">
+                            <mat-checkbox [checked]="selectAllStatus['starships'] || false"
+                                (change)="toggleSelectAll('starships', dropdownvaluesstartship, $event.checked)">Select
+                                All</mat-checkbox>
+                            @for (item of dropdownvaluesstartship; track $index) {
+                            <mat-checkbox [checked]="selectedFilters['starships'].includes(item) "
+                                (change)="toggleItem('starships', item, $event.checked, dropdownvaluesstartship)">{{item}}</mat-checkbox>
+                            }
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel class="headerexpandable">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Birth Year</mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <div class="options">
+                            <div class="mat-checkboxdiv">
+                                <mat-checkbox [checked]="selectAllStatus['bday'] || false"
+                                    (change)="toggleSelectAll('bday', birthYearOptions, $event.checked)">Select
+                                    All</mat-checkbox>
+                                @for (item of birthYearOptions; track $index) {
+                                <mat-checkbox [checked]="selectedFilters['bday'].includes(item) "
+                                    (change)="toggleItem('bday', item, $event.checked, birthYearOptions)">{{item}}</mat-checkbox>
+                                }
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+
+                </mat-accordion>
+
+
+                <!-- it is configured on serach button and if we want to refresh at time of filter we can call 
+                this applyfilter inside toggle function and toogle select -->
+                <!-- <button type="button" (click)="applyFilters()" mat-stroked-button class="search-button">
+                    SEARCH
+                </button> -->
+                <button type="button" mat-stroked-button class="search-button">
+                    SEARCH
+                </button>
+
+            </div>
+
+        </div>
+        <div class="results">
+            <div class="resultheader">
+                <h2>{{search}}</h2>
+            </div>
+            <div class="tablecontainer">
+
+                <table class="result-table">
+                    <thead>
+                        <tr class="hearder-row">
+                            <th style="width: 10%; text-align: start;">Sl No.</th>
+                            <th style="width: 50%;  text-align: start;">Character Name</th>
+                            <th style="width: 20%; text-align: start;">Species</th>
+                            <th style="width: 20%; text-align: start;">Birth Year</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="result-body">
+                        @for (item of paginatedData; track $index) {
+                        <tr>
+                            <td>{{$index+1}}.</td>
+                            <td [routerLink]="['/characters',getId(item.url)]">{{item.name}}</td>
+                            <td>{{item.speciesNames?.join(', ') || '---'}}</td>
+                            <td>{{item.birth_year || '---'}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (paginatedData.length === 0) {
+                <div class="no-data">
+                    No characters found For the applied filter Value.
+                </div>
+                }
+                <div class="pagination-section">
+                    <nav aria-label="Search results pages">
+                        <ul class="pagination pagination-sm">
+
+                            <li class="page-item" [class.active]="currentPage === 1"
+                                [class.disabled]="currentPage === 1 && totalPages === 1" (click)="goToPage(1)"><a
+                                    class="page-link" aria-current="page">1</a></li>
+
+                            <li class="page-item" [class.active]="currentPage === 2" (click)="goToPage(2)"
+                                [class.disabled]="totalPages < 2">
+                                <a class="page-link">2</a>
+                            </li>
+                            <li class="page-item" [class.active]="currentPage === 3" (click)="goToPage(3)"
+                                [class.disabled]="totalPages < 3">
+                                <a class="page-link">3</a>
+                            </li>
+                            <li class="page-item" [class.disabled]="currentPage >= totalPages" (click)="nextPage()"><a
+                                    class="page-link"><mat-icon>play_circle</mat-icon></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <!-- <div></div> -->
+
+</form>
