@@ -104,6 +104,11 @@
                                 </div>
 
                                 }
+                                @if(films.length===0){
+                                <div class="movies-card">
+                                    <p>No Movies Found for this character.</p>
+                                </div>
+                                }
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title" style="color :  #239B77;font-size :  1.5em;">VEHICLES</h5>
@@ -129,6 +134,11 @@
                                 </div>
 
                                 }
+                                @if(vehicles.length===0){
+                                <div class="movies-card">
+                                    <p>No vehicles Found for this character.</p>
+                                </div>
+                                }
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title" style="color: #239B77;font-size: 1.5em;">STARSHIPS</h5>
@@ -153,6 +163,11 @@
                                     </p>
                                 </div>
 
+                                }
+                                @if(starships.length===0){
+                                <div class="movies-card">
+                                    <p>No Starships Found for this character.</p>
+                                </div>
                                 }
                             </div>
                         </div>
